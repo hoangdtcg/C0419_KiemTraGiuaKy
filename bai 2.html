@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 2</title>
+</head>
+<body>
+<script>
+    let arr = ['a', 'b', 'c', 'a','f', 'g', 'h', 'h','m', 'm','n', 'o', 'e','j','x','y','x'];
+    let index = 0;
+    let flag = false;
+    function kiemtra(str) {
+        for (let i = 0; i < arr.length; i++){
+            if (str === arr[i]){
+                index++;
+                flag = true;
+            }
+        }
+    }
+    let string = prompt("Nhap vao ky tu bat ki");
+    kiemtra(string);
+    if (flag == true){
+        alert("ky tu nam trong mang va co so lan xuat hien la: " + index);
+    } else {
+        alert('-1');
+    }
+    </script>
+</body>
+</html>
