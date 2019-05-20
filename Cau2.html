@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="click" onclick="Mang()">
+<script>
+    function Mang(){
+    let nhap =parseInt(prompt("Nhap so:"));
+    let arr=[1,1,6,8,9,10];
+    let xuathien=0;
+        for (let i = 0;i<arr.length;i++){
+            if (nhap == arr[i]){
+                xuathien++;
+
+            }
+        }
+        if(xuathien==0){
+            alert("-1");
+        }else {
+            alert(xuathien);
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viet chuong trinh tra ve tich lon nha cua 2 so lien ke trong mang</title>
+</head>
+<body>
+<script>
+    let arr = [1,2,-3,-4,7,9]
+    let tich = null;
+    let arr2=[];
+    for (let i=0;i<arr.length;i++){
+        tich = arr[i]*arr[i+1];
+        arr2.push(tich);
+    }
+    let max = arr2[0];
+    for (let j= 0;j<arr2.length;j++){
+            if(arr2[j] > max){
+                max = arr2[j];
+        }
+    }
+    alert(max);
+
+</script>
+</body>
+</html>
