@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai3</title>
+</head>
+<body>
+<script>
+    let Remote = function () {
+
+        this.code = "";
+
+        this.switchChanel = function (televition, chanel) {
+            televition.changeChanel(chanel);
+        };
+
+        this.increaseVolume = function (televition) {
+            televition.increaseVolume();
+        };
+
+        this.decreaseVolume = function (televition) {
+            televition.decreaseVolume();
+        };
+        this.power = function (televition) {
+            televition.status = !tivi.status;
+        }
+
+    let Televition = function () {
+
+        this.currentChanel = 1;
+        this.volume = 0;
+        this.status = false;
+
+        this.changeChanel = function (chanel) {
+            if (this.status) {
+                this.currentChanel = chanel;
+            }
+        };
+
+        this.increaseVolume = function () {
+            if (this.status && this.volume < 100) {
+                this.volume++;
+            }
+        };
+
+        this.decreaseVolume = function () {
+            if (this.status && this.volume > 0) {
+                this.volume--;
+            }
+        };
+    }
+    let samsung = new Televition();
+    let remoteSamsung = new Remote();
+    LG.status = true;
+    LG.changeChanel(3);
+    remoteSamsung.switchChanel(samsung, 3);
+    LG.increaseVolume();
+    LG.increaseVolume();
+    remoteSamsung.power(samsung);
+</script>
+</body>
+</html>
