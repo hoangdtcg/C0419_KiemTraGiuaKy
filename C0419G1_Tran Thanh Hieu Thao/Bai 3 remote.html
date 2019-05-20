@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+<script>
+    let Remote = function (number,tivi) {
+        this.MaKenh =number;
+        this.AmLuong =100;
+        this.Caitivi = tivi;
+        this.Dieukhienamluong =function (number) {
+            this.Caitivi.AmLuong =this.Caitivi.AmLuong -number;
+        };
+        this.chuyenkenh = function () {
+            this.Caitivi.KenhDangChieu = this.MaKenh;
+            return this.MaKenh;
+        };
+        this.tattivi = function () {
+            this.Caitivi.OnOFF =false;
+            return this.Caitivi.OnOFF;
+        }
+    };
+
+    let Tivi = function (kenh,number) {
+        this. KenhDangChieu = kenh;
+        this.AmLuong = number;
+        this.OnOFF = true;
+        this.chuyenkenhTivi =function (chuyenkenh) {
+            this.KenhDangChieu =chuyenkenh;
+            return this.KenhDangChieu;
+        };
+        this.dieukhienamluong = function (Value) {
+            this.AmLuong +=Value;
+            return this.AmLuong;
+        }
+    };
+    let tivi = new Tivi(15,50);
+    let remote = new Remote(3,tivi)
+
+    //bật tivi
+    console.log( tivi.OnOFF);
+
+    //chuyển đến kênh 7
+
+    console.log( tivi.chuyenkenhTivi(7));
+
+    // dùng remote chuyển đến kênh 3
+
+    console.log(remote.chuyenkenh());
+
+    //tăng âm lượng lên 2 đơn vị
+    console.log( tivi.dieukhienamluong(2));
+
+    //Dùng remote tắt tivi
+    console.log(remote.tattivi());
+
+</script>
+</body>
+</html>
