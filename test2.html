@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Moi nhap chuoi ky tu:
+<input type="text" id="nhap" onchange="them()">
+<p id="hienthi"></p>
+<br>
+Mai nhap 1 ky tu:
+<input type="text" id="nhap1" onchange="them1()">
+<p id="hienthi1"></p>
+<button onclick="tim()">Tim</button>
+
+<script>
+    let A = [];
+    let B = [];
+    function them() {
+        let input1 = document.getElementById("nhap").value;
+        A.push(input1);
+        document.getElementById("hienthi").innerHTML = A;
+        document.getElementById("nhap").value = "";
+    }
+    function them1() {
+        let input2 = document.getElementById("nhap1").value;
+        B.push(input2);
+        document.getElementById("hienthi1").innerHTML = B;
+    }
+    function tim() {
+        let dem=0;
+        for (let i=0;i<A.length;i++){
+            if(B[0]===A[i]){
+                dem++;
+            }
+        }
+        if(dem==0){
+            alert("-1");
+        }else{
+            alert("xuat hien"+dem+"lan");
+        }
+    }
+</script>
+</body>
+</html>
