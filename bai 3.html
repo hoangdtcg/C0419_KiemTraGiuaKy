@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 3</title>
+</head>
+<body>
+<script>
+    function Remote() {
+        this.code = code;
+        this.setChanel = function () {
+            return this.chanel;
+        };
+        this.setVolume = function () {
+            return this.volume;
+        };
+    }
+    function Tivi() {
+        this.chanel = channel;
+        this.volume = volume;
+        this.status = true;
+        this.getStatus = function () {
+            return this.status;
+        };
+        this.setStatus = function (value) {
+            this.status = value;
+        };
+        this.setchanel = function (num) {
+            this.chanel = num;
+        };
+        this.setvolume = function () {
+            return this.volume;
+        };
+        this.turnOn = function () {
+            this.setStatus(true);
+        };
+        this.turnOff = function () {
+            this.setStatus(false);
+        }
+    }
+    let remote = new Remote();
+    let tivi = new Tivi();
+
+</script>
+</body>
+</html>

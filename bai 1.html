@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 1</title>
+</head>
+<body>
+<input id="nhap">
+<input type="button" id="add" value="Add" onclick="Addarray()">
+<input type="button" id="convert" value="Convert" onclick="Tinh()">
+<script>
+    let x = 0;
+    let array = Array();
+    function Addarray() {
+        array[x] = document.getElementById('nhap').value;
+        x++;
+        document.getElementById('nhap').value = "";
+    }
+    function Tinh() {
+        let Max = array[0] * array[1];
+        for ( let i = 1; i <array.length; i++){
+            if (array[i] * array[i+1] > Max){
+               Max = array[i] * array[i+1];
+            }
+        }
+        alert("Tich cua hai so lien ke lon nhat la: " + Max);
+    }
+
+</script>
+</body>
+</html>
