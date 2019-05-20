@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+<input id="nhapso" />
+<input type="button" style="height: 30px" value="Add" onclick="Add()"/>
+<input type="button" style="height: 30px" value="timtichlonnhat" onclick="timtichlonnhat()"/>
+<script>
+    let Array =[];
+    let i =0;
+    function Add() {
+        let nhapso = document.getElementById("nhapso").value;
+        Array.push(nhapso);
+        i++;
+        document.getElementById("nhapso").value ="";
+    }
+    function timtichlonnhat() {
+    let Max = Array[0] * Array[1];
+    for (let i = 0; i < Array.length; i++) {
+        if (Array[i] * Array[i + 1] > Max) {
+            Max = Array[i] * Array[i + 1];
+        }
+    }
+    alert( "Tích lớn nhất 2 số liền kề trong mảng vừa nhập là:" + " " + Max);
+    }
+</script>
+</body>
+</html>
