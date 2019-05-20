@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    let Remote = function () {
+        this.setCCode=function (number) {
+            this.cCode=number;
+        };
+        this.connectTV = function (tv) {
+            this.tv = tv;
+        };
+        this.turnOn = function () {
+            this.tv.turnOn();
+        };
+        this.turnOff = function () {
+            this.tv.turnOff();
+        };
+        this.switchChannel = function (cCode) {
+            if (this.tv.status) {
+                this.tv.switchChannel(cCode);
+            } else alert('TV off');
+        };
+        this.increaseVolume = function () {
+            if (this.tv.status) {
+                this.tv.increaseVolume();
+            } else alert('TV off');
+        };
+        this.decreaseVolume = function () {
+            if (this.tv.status) {
+                this.tv.decreaseVolume();
+            } else alert('TV off');
+        };
+    };
+    let TV = function () {
+        this.currentChannel = 10;
+        this.currentVolume = 10;
+        this.status;
+        this.turnOn = function () {
+            this.status = true;
+        };
+        this.turnOff = function () {
+            this.status = false;
+        };
+        this.switchChannel = function (channel) {
+            this.currentChannel = channel;
+        };
+        this.increaseVolume = function () {
+            if (this.status) {
+                this.currentVolume++;
+            } else alert('TV off');
+        };
+        this.decreaseVolume = function () {
+            if (this.status) {
+                if (this.currentVolume > 0) {
+                    this.currentVolume--
+                } else this.currentVolume = 0;
+            } else alert('TV off');
+
+        };
+    };
+    let tv=new TV();
+    let remote=new Remote();
+    remote.connectTV(tv);
+    tv.turnOn();
+    console.log(tv.status);
+    tv.switchChannel(7);
+    console.log(tv.currentChannel);
+    remote.setCCode(3);
+    console.log(remote.cCode);
+    remote.tv.switchChannel(remote.cCode);
+    console.log(tv.currentChannel);
+    remote.tv.increaseVolume();
+    console.log(tv.currentVolume);
+    remote.tv.increaseVolume();
+    console.log(tv.currentVolume);
+    remote.turnOff();
+    console.log(tv.status);
+    // khai báo và khởi tạo 1 tv, remote
+    //     bật tv
+    // chuyển đến kênh 7
+    //     dùng remote chuyển đến kenh 3
+    //     tăng âm lượng lên 2 dv
+    //     dùng remote tắt tv
+
+</script>
+</body>
+</html>
