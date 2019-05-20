@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function count(a) {
+            let array = ["b","b","c","d","e","f"];
+            let dem = 0;
+            for (let i = 0; i < array.length; i++) {
+                if (a == array[i]) {
+                    dem++;
+                }
+            }
+            if (dem > 0) {
+                return dem;
+            } else {
+                return -1;
+            }
+        }
+        count("a");
+        count("b");
+    </script>
+</body>
+</html>
