@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai2</title>
+</head>
+<body>
+<button onclick="test()">test</button>
+<script>
+    let array = ['dads', 'sads', 'sad', 'yes', 'no', "yes"];
+
+    function test() {
+        document.write("array:" + array);
+        let test = prompt("tim kiem: ");
+        let dem = 0;
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] == test) {
+                dem++;
+            }
+        }
+        if (dem == 0) {
+            alert("-1");
+        } else {
+            alert(dem);
+        }
+    }
+
+</script>
+</body>
+</html>

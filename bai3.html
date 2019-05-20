@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai3</title>
+</head>
+<body>
+<script>
+    //mô tả đối tượng điều khiển từ xa tivi
+    let Remote = function () {
+        this.code = ['0', '1', '2', '3', '4', ' 5', '6', '7', ' 8', '9', "+", "-"];
+        this.ketNoi = function (tivi) {
+            this.tivi = tivi;
+        };
+        this.control = function (test) {
+            for (let i = 0; i < this.code.length; i++) {
+                if (this.code[i] == test) {
+                    console.log("chuyen kenh" + test);
+                }
+            }
+        };
+        this.controlVolum = function (test) {
+            if ("+" == test) {
+                this.tivi.volume++;
+                console.log("tang am luong");
+            } else {
+                this.tivi.volume--;
+                console.log("giam am luong");
+            }
+        };
+        this.tunOff = function () {
+            this.tivi.status = false;
+        }
+    };
+    //mô tả tivi
+    let Tivi = function () {
+        this.kenh = ['0', '1', '2', '3', '4', ' 5', '6', '7', ' 8', '9', "+", "-"];
+        this.volume = 80;
+        this.status = true;
+        this.controlTivi = function (test) {
+            if (this.kenh == test) {
+                alert("kenh" + test);
+            }
+        };
+        this.controlVolum = function (test) {
+            if (test == "+") {
+                this.volume++;
+            }
+            if (test == "-") {
+                this.volume--;
+            }
+        };
+        this.checkStatus = function () {
+            if (this.status) {
+                console.log("tivi on");
+            } else {
+                console.log("tivi off");
+            }
+        };
+    };
+    let remote = new Remote();
+    let tivi = new Tivi();
+//test
+    function f() {
+        remote.ketNoi(tivi);
+        remote.control("7");
+        remote.control("3");
+        remote.controlVolum("+");
+        remote.controlVolum("+");
+        remote.tunOff();
+        tivi.checkStatus();
+    }
+
+    f();
+
+</script>
+</body>
+</html>
