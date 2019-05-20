@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RemoteAndTivi</title>
+</head>
+<body>
+<button onclick="UpLocal()">Local+</button>
+<button onclick="DownLocal()">Local-</button>
+<button onclick="UpVol()">vol+</button>
+<button onclick="DownVol()">vol-</button>
+<input type="button" id="onOff" onclick="Onoff()" value="Off">
+    <script>
+        var Remote=function () {
+            this.remoteUp=function (tivi) {
+                tivi.local++;
+            };
+            this.remoteDown=function (tivi) {
+                if (tivi.local>0){
+                    tivi.local--;
+                }
+            };
+            this.volUp=function (tivi) {
+                tivi.vol++;
+            };
+            this.volDown=function (tivi) {
+                if (tivi.vol>0){
+                    tivi.vol--;
+                }
+            };
+            this.remoteOn=function (tivi) {
+                tivi.status=true;
+            };
+            this.remoteOff=function (tivi) {
+                tivi.status=false;
+            }
+        };
+        var Tivi=function (local,vol) {
+            this.local=local;
+            this.vol=vol;
+            this.status=false;
+            this.statusTivi=function () {
+                if (this.status){
+                    console.log('Tivi dang bat');
+                }else {
+                    console.log('Tivi tat');
+                }
+            };
+            this.getVol=function () {
+                return this.vol;
+            };
+            this.getLocal=function () {
+                return this.local;
+            }
+        };
+        let remoteS=new Remote();
+        let tiviS=new Tivi(2,20);
+        tiviS.statusTivi();
+        console.log(tiviS.getVol());
+        console.log(tiviS.getLocal());
+        function UpLocal() {
+            remoteS.remoteUp(tiviS);
+            console.log(tiviS.getLocal())
+        }
+        function DownLocal() {
+            remoteS.remoteDown(tiviS);
+            console.log(tiviS.getLocal())
+        }
+        function UpVol() {
+            remoteS.volUp(tiviS);
+            console.log(tiviS.getVol())
+        }
+        function DownVol() {
+            remoteS.volDown(tiviS);
+            console.log(tiviS.getVol())
+        }
+        function Onoff(){
+            if (tiviS.status){
+                remoteS.remoteOff(tiviS);
+                tiviS.statusTivi();
+                document.getElementById('onOff').value='Off'
+            }else {
+                remoteS.remoteOn(tiviS);
+                tiviS.statusTivi();
+                document.getElementById('onOff').value='On'
+            }
+        }
+    </script>
+</body>
+</html>
