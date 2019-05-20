@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tim ky tu</title>
+</head>
+<body>
+<input id="Input" type="text" oninput="Add()">
+<p>Nhap ky tu can tim</p>
+<input id="word" type="text">
+<button onclick="Kiemtra()">Kiemtra</button>
+<hr>
+<p>Cac phan tu trong mang</p>
+<span id="Array"></span>
+<br>
+<button onclick="Reset()">Reset</button>
+<hr>
+<p>Result</p>
+<span id="result"></span>
+<script>
+    let arrWord=[];
+    function Add() {
+        let num=document.getElementById('Input').value;
+        arrWord.push(num);
+        document.getElementById('Array').innerHTML=arrWord.toString();
+        document.getElementById('Input').value='';
+    }
+    function Reset() {
+        document.getElementById('Array').innerHTML='';
+        arrWord=[];
+        document.getElementById('result').innerHTML='';
+        document.getElementById('word').value='';
+    }
+    function Kiemtra() {
+        let word=document.getElementById('word').value;
+        let dem=0;
+        for (let i=0;i<arrWord.length;i++){
+            if (word===arrWord[i]){
+                dem++
+            }
+        }
+        if (dem==0){
+            document.getElementById('result').innerHTML=-1;
+        }else {
+            document.getElementById('result').innerHTML=dem;
+        }
+    }
+</script>
+</body>
+</html>

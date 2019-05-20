@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tich 2 so lien ke</title>
+</head>
+<body>
+    <input id="Input" type="number" onchange="Add()">
+    <hr>
+    <p>Cac phan tu trong mang</p>
+    <span id="Array"></span>
+    <br>
+    <button onclick="Kiemtra()">Kiemtra</button>
+    <button onclick="Reset()">Reset</button>
+<hr>
+<p>Tich lon nhat cua 2 so lien ke</p>
+<span id="result"></span>
+<script>
+    let arrNum=[];
+    function Add() {
+        let num=document.getElementById('Input').value;
+        arrNum.push(num);
+        document.getElementById('Array').innerHTML=arrNum.toString();
+        document.getElementById('Input').value='';
+    }
+    let max=0;
+    function Kiemtra() {
+        for (let i=0;i<arrNum.length;i++){
+            let Result=arrNum[i]*arrNum[i+1];
+            if (Result>max){
+                max=Result;
+            }
+        }
+        document.getElementById('result').innerHTML=max;
+    }
+    function Reset() {
+        document.getElementById('Array').innerHTML='';
+        arrNum=[];
+        document.getElementById('result').innerHTML='';
+    }
+</script>
+</body>
+</html>
