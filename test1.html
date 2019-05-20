@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" id="nhap" onchange="them()">
+<p id="hienthi"></p>
+<button onclick="tinh()">Tinh</button>
+<p id="hienthi1"></p>
+<script>
+
+    let A=[];
+    function them() {
+        let nhap=document.getElementById("nhap").value;
+        A.push(nhap);
+        document.getElementById("hienthi").innerHTML=A;
+        document.getElementById("nhap").value="";
+    }
+    function tinh() {
+        let max=A[0]*A[1];
+        for(let i=0;i<A.length;i++){
+            if(A[i]*A[i+1]>max){
+                max=A[i]*A[i+1];
+            }
+        }
+        document.getElementById("hienthi1").innerHTML=max;
+    }
+
+</script>
+</body>
+</html>
