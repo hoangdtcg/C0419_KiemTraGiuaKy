@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai2</title>
+</head>
+<body>
+<input id="nhapmang" type="text" placeholder="nhập vào một mảng">
+<input id="nhapphantu" type="text" placeholder="nhập vào một ký tự" >
+<button type="button" onclick="timKiem()">Tìm phần tử</button> <br>
+<label id="ketqua"></label>
+<script>
+    function timKiem() {
+        let nhapMang = document.getElementById("nhapmang").value;
+        let nhapPhanTu = document.getElementById("nhapphantu").value;
+        dem = 0;
+        for (let i=0;i<nhapMang.length;i++){
+            if(nhapMang[i]==nhapPhanTu) {
+                dem ++;
+            }
+        }
+        document.getElementById("ketqua").innerHTML = "Có "+ dem + " ký tự "+ nhapPhanTu +" trong mảng ";
+        if(dem==0){
+            document.getElementById("ketqua").innerHTML = "Không có ký tự "+ nhapPhanTu +" trong mảng" ;
+            return -1;
+        } else
+            return dem;
+    }
+</script>
+</body>
+</html>

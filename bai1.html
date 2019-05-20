@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai1</title>
+</head>
+<body>
+<input id="nhapmang" type="text" placeholder="nhapvaomangtaiday">
+<button type="button" onclick="kiemtra()">Max</button> <br>
+<label id="ketqua"></label>
+<script>
+    function kiemtra() {
+        let nhapMang = document.getElementById('nhapmang').value;
+        max =0;
+        for (let i=0; i<=nhapMang.label-1;i++){
+            if(mang[i]*mang[i+1]>mang[i+1]*mang[i+2]){
+                max += mang[i]*mang[i+1];
+            } else {
+                max += mang[i+1]*mang[i+2];
+            }
+        }
+        document.getElementById("ketqua").innerHTML = max;
+    }
+</script>
+</body>
+</html>
