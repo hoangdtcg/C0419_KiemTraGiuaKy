@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let Remote=function (ma) {
+        this.ma=ma;
+        this.chuyenkenh=function (tivi,kenh) {
+            tivi.kenhdangphat=kenh;
+            console.log("da chuyen sang kenh: "+tivi.kenhdangphat);
+        };
+        this.tangamlen=function (tivi) {
+                tivi.amluongHT++;
+                console.log("tang len thanh: " + tivi.amluongHT)
+        };
+        this.giamamxuong=function (tivi) {
+            tivi.amluongHT--;
+            console.log("giam xuong con: " + tivi.amluongHT)
+        };
+        this.turnOn = function (tivi) {
+            tivi.trangthaitv= true;
+            console.log("Bat Tivi:" + tivi.trangthaitv)
+        };
+        this.turnOff = function (tivi) {
+            tivi.trangthaitv = false;
+            console.log("Tat Tivi:" + tivi.trangthaitv)
+        }
+    };
+    let Tivi=function (kenhdangphat,amluongHT,trangthaitv) {
+        this.kenhdangphat=kenhdangphat;
+        this.amluongHT=amluongHT;
+        this.trangthaitv=trangthaitv;
+    };
+    let remote=new Remote();
+    let tivi=new Tivi(4,50,false);
+    remote.turnOn(tivi);
+    remote.turnOff(tivi);
+    function tangam(tang) {
+        for (i=0;i<tang;i++){
+            remote.tangamlen(tivi);
+        }
+    }
+    tangam(4);
+
+
+
+</script>
+</body>
+</html>
