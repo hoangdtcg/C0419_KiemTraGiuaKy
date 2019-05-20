@@ -23,8 +23,8 @@
         document.getElementById('Array').innerHTML=arrNum.toString();
         document.getElementById('Input').value='';
     }
-    let max=0;
     function Kiemtra() {
+        let max=arrNum[0]*arrNum[1];
         for (let i=0;i<arrNum.length;i++){
             let Result=arrNum[i]*arrNum[i+1];
             if (Result>max){
