@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai3</title>
+</head>
+<body>
+<input type="button" onclick="volumeUp()" value="Tăng Volume">
+<input type="button" onclick="volumeDown()" value="Giảm Volume">
+<input type="button" onclick="power()" value="Power">
+<input type="button" onclick="changeChannel()" value="chuyển kênh">
+<script>
+    function Television(channel, volume, status) {
+        this.channel= channel;
+        this.volume= volume;
+        this.status= status;
+
+        this.getChannel=function () {
+            return this.channel;
+        };
+        this.getVolume= function () {
+            return this.volume;
+        };
+        this.getStatus=function () {
+            return this.status;
+        };
+
+        this.setVolumeUp=function () {
+            this.volume++;
+        };
+        this.setVolumeDown=function () {
+            this.volume--;
+        };
+        this.setChannel=function (channel) {
+            this.channel=channel;
+        };
+        this.setTurnOn=function () {
+            if(!this.status){
+                this.status = true;
+            }
+        };
+        this.setTurnOff=function () {
+            if(this.status){
+                this.status= false;
+            }
+        };
+    }
+
+    function Remote(imei) {
+        this.imei=imei;
+
+        this.setChannel=function (tv, channel) {
+            tv.setChannel(channel);
+        };
+        this.setVolumeUp=function (tv) {
+            tv.setVolumeUp();
+        };
+        this.setVolumeDown=function (tv) {
+            tv.setVolumeDown();
+        };
+        this.turnOnOff=function (tv) {
+            if(tv.status=== true){
+                tv.setTurnOff();
+            }else if(tv.status=== false){
+                tv.setTurnOn();
+            }
+        };
+    }
+
+    let television= new Television("0", 20, false);
+    let remote=new Remote(2234);
+
+    //Hiển thị đối tượng TV và điều khiển;
+    console.log(television);
+    console.log(remote);
+
+    //Bật TV và chuyển đến kênh 7;
+    television.setTurnOn();
+    television.setChannel("7");
+    console.log(television.status);
+    console.log(television.channel);
+
+    //Dùng điều khiển chuyển đến kênh 3;
+    function changeChannel() {
+        let ch = prompt("Nhập vào đây số kênh muốn chuyển:");
+        remote.setChannel(television, "3");
+        console.log(television.channel);
+    }
+
+    //Tăng âm lượng lên 2 đơn vị bằng cách nhấp 2 lần vào button
+    function volumeUp() {
+        remote.setVolumeUp(television);
+        console.log(television.volume);
+    }
+    function volumeDown() {
+        remote.setVolumeDown(television);
+        console.log(television.volume);
+    }
+    //Bật tắt tv
+    function power() {
+        remote.turnOnOff(television);
+        console.log(television.status);
+    }
+    
+
+</script>
+</body>
+</html>
