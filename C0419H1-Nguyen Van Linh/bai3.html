@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Remote and TV</title>
+</head>
+<body>
+<h3>Bai 3: Remote and TV</h3>
+<script>
+    let Remote = function (ma) {
+        this.ma = ma;
+        this.TV = TV;
+        this.setChannel = function (channel) {
+
+        this.getTV = function () {
+            return this.TV;
+        };
+        this.connectToTV = function (TV) {
+            this.TV = TV;
+        };
+        this.switchOff = function () {
+            this.getTV().turnOff();
+        };
+        this.switchOn = function () {
+            this.getTV().turnOn();
+        };
+    };
+    let Tivi = function (name) {
+        this.volum = 50;
+        this.status = true;
+        this.getVolum = function () {
+
+        };
+        this.ontivi = function () {
+            if(this.status){
+                console.log("on");
+            }else{
+                console.log("off");
+            }
+        };
+        this.turnOn = function () {
+            this.status = true;
+        };
+        this.turnOff = function () {
+            this.status = false;
+        };
+
+    };
+
+    let remote = new Remote(123);
+        let tivi = new Tivi(LG);
+
+        remote.switchOff(tivi);
+</script>
+</body>
+</html>

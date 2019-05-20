@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>bai 2: chuoi co san: ["a","v","b","b","b","d","e","w","b"]</h3>
+<input type="text" id="idchart"><button onclick="checkChart()">check</button>
+<script>
+    function checkChart() {
+        let arrCheck = ["a", "v", "b", "b", "b", "d", "e", "w", "b"];
+        let count = 0;
+        let chart = document.getElementById("idchart").value;
+        for (let i = 0; i < arrCheck.length; i++) {
+            if (chart === arrCheck[i]) {
+                count = count + 1;
+            }
+        }
+        if(count>0){
+            alert(count);
+        }else{
+            alert(-1);
+        }
+
+    }
+
+</script>
+</body>
+</html>
