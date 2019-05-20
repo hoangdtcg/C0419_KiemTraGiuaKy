@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+Nhập mảng chuỗi ký tự: <input type="text" id="chuoi"><br>
+<br>
+Nhập ký tự cần kiểm tra: <input type="text" id="kytu">
+<input type="button" onclick="kiemtra()" value="Kiểm tra">
+<script>
+    function kiemtra() {
+        let a = document.getElementById("chuoi").value;
+        let b = document.getElementById("kytu").value;
+        let sl = 0;
+        for (let i = 0; i < a.length - 1; i++) {
+            if (b === a[i]) {
+                sl++;
+            }
+
+        }
+        if (sl > 0) {
+            document.write("Số lần xuất hiện trong chuỗi là: " + sl);
+        } else {
+            document.write("Ký tự không xuất hiện trong chuỗi: -1");
+        }
+
+    }
+
+</script>
+
+</body>
+</html>
