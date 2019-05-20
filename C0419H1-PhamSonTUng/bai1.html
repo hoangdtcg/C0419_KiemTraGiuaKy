@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * @return {number}
+     */
+    let Tich2so = function (arr) {
+        let max = arr[0]*arr[1];
+        for(i=1;i<=arr.length-1;i++){
+            if(arr[i]*arr[i+1]>max){
+                max = arr[i]*arr[i+1];
+            }
+        }
+        return max;
+    };
+    let a = Tich2so([1,2,-3,-4,7,9,14]);
+    console.log("Tich lon nhat: "+a);
+</script>
+
+</body>
+</html>

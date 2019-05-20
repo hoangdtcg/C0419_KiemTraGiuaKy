@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let Tivi = function (chanel,volume) {
+        this.chanel=chanel;
+        this.volume=volume;
+        this.status=false;
+        this.setChanel = function (number) {
+            this.chanel=number;
+        };
+        this.getChanel = function () {
+            return this.chanel
+        };
+        this.setVolume = function (number) {
+            this.volume=number;
+        };
+        this.getVolume = function () {
+            return this.volume;
+        };
+        this.changeChannel = function (number) {
+            this.chanel=number;
+        };
+        this.changeVolume = function () {
+            this.volume++;
+        };
+        this.turnOn = function () {
+            this.status = true;
+        };
+        this.turnOff = function () {
+            this.status = false;
+        };
+        this.checkTV = function () {
+            if(this.status){
+                console.log("TV đang bật")
+            }else {
+                console.log("TV đang tắt")
+            }
+        }
+    };
+    let Remote = function () {
+        this.doiKenh = function (tivi,number) {
+            tivi.chanel=number;
+        };
+        this.doiAmluong = function (tivi,number) {
+            number=tivi.setVolume();
+        };
+        this.turnOn = function (TV) {
+            return TV.turnOn();
+        };
+        this.turnOff = function (TV) {
+            return TV.turnOff();
+        }
+    };
+    let tivi = new Tivi(2,20);
+    let remote = new Remote();
+    tivi.checkTV();
+    console.log("Âm lượng: "+tivi.getVolume());
+    console.log("Kênh: "+tivi.getChanel());
+    tivi.turnOn();
+    tivi.changeChannel(7);
+    tivi.checkTV();
+    console.log("Kênh: "+tivi.getChanel());
+    remote.doiKenh(tivi,3);
+    tivi.changeVolume();
+    tivi.changeVolume();
+    remote.turnOff(tivi);
+    console.log("Kênh: "+tivi.getChanel());
+    console.log("Âm lượng: "+tivi.getVolume());
+    tivi.checkTV();
+
+</script>
+
+</body>
+</html>
